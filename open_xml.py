@@ -20,9 +20,8 @@ class SentenceGenerator(object):
             t = ' '.join(doc.splitlines())
             sents = nltk.sent_tokenize(t)
             self.doc_nums -= 1
-
+            i = 0
             for sent in sents:  # type: str
-                i = 0
                 i += 1
                 print('Processing sentence {}'.format(i))
                 sent = sent.translate(self.trans).split()
