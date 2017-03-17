@@ -45,14 +45,14 @@ if __name__ == "__main__":
                     continue
                 documents.append(child.text)
         element.clear()
-
-    print('Finished Extracting body texts')
+    fh = open('finalizing.txt', 'w')
     print('Setting WordVecs')
     print('{} documents to process'.format(len(documents)))
     sentences = SentenceGenerator(documents)
     model = gensim.models.Word2Vec(sentences, min_count=10, size=300, workers=4)
+    fh.write('Finished Extracting body texts')
     model.save('govperdue.vecm')
-    print()
+    fh.close()
 
 
 
